@@ -88,10 +88,13 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
   
-	client.user.setPresence({ game: { name: 'in alpha! v0.01' }, status: 'idle' })
+	client.user.setPresence({ game: { name: 'in alpha! v0.01' }, status: 'dnd' })
   	.then(console.log)
   	.catch(console.error);    
 	
+	client.user.setStatus('dnd')
+  .then(console.log)
+  .catch(console.error);
 	
    if(command === "help") {
 	   embed=discord.Embed(title="Help", description="You ask for help, I deliver it!")
