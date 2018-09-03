@@ -88,7 +88,11 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
   
-	    client.user.setStatus('away', 'in Alpha! (v0.01)') 
+	client.user.setPresence({ game: { name: 'in alpha! v0.01' }, status: 'idle' })
+  	.then(console.log)
+  	.catch(console.error);    
+	
+	
    if(command === "help") {
 	   embed=discord.Embed(title="Help", description="You ask for help, I deliver it!")
 embed.set_author(name="FaTaLz Bot")
