@@ -13,9 +13,7 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
-client.user.setActivity('in beta! (0.01)', { type: 'PLAYING' })
-  .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
-  .catch(console.error);
+	
   
   if(command === "ping") {
     
@@ -24,7 +22,9 @@ client.user.setActivity('in beta! (0.01)', { type: 'PLAYING' })
   }
   
   if(command === "say") {
-   
+   if(!message.member.roles.some(r=>["Admin"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!");
+	  
     const sayMessage = args.join(" ");
    
     message.delete().catch(O_o=>{}); 
