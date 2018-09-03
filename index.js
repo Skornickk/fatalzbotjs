@@ -88,6 +88,7 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
   
+	    client.user.setStatus('away', 'in Alpha! (v0.01)') 
    if(command === "help") {
 	   embed=discord.Embed(title="Help", description="You ask for help, I deliver it!")
 embed.set_author(name="FaTaLz Bot")
