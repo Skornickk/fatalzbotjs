@@ -13,7 +13,9 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
-
+client.user.setActivity('in beta! (0.01)', { type: 'PLAYING' })
+  .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+  .catch(console.error);
   
   if(command === "ping") {
     
